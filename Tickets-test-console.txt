@@ -1,0 +1,7 @@
+ Starting ticket price = 10.0 cedis
+ Tickets available now = 50
+Total Sales = 195.0 cedis
+Sold Tickets = 30
+Tickets available = 20
+The tickes were sold for 6.5 cedis each
+not enough tickets to sell

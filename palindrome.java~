@@ -1,0 +1,11 @@
+import java.util.Scanner;
+public class palindrome{
+  
+  public static void main(String[] args) {
+    String userInput;
+    System.out.println("Enter the word")
+      Scanner keyboard = new Scanner(System.in)
+      userInput = input.nextLine();
+    System.out.println("you just entered" + userInput)
+  }
+}

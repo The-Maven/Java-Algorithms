@@ -1,0 +1,89 @@
+/**
+ * Auto Generated Java Class.
+ */
+//Import Java class
+import java.util.Scanner;
+public class Gradepolicy {
+  //Encapsulate the maximum parameters
+  public static final double ASSINGMENT_MAX = 280;
+  public static final double MIDSEM_TEST_MAX =350;
+  public static final double FINAL_MAX = 100 ;
+  public static final double PARTICIPATION_MAX = 14;
+  // Weight of every section
+  public static final double ASSIGNMENT_WEIGHT = 45;
+  public static final double MID_SEM_TESTS_WEIGHT = 20;
+  public static final double FINAL_WEIGHT = 30;
+  public static final double PARTICIPATION_WEIGHT = 5;
+  
+  
+  public static void main(String[] args) { 
+    
+  double labAssignment,score, finalExam; 
+  double test_MidSem, participation,finalGrade;
+  double score1,score2,score3;
+  
+  //Threshold definition
+  double A_THRESHHOLD = 80;
+  double B_THRESHHOLD = 75; 
+  double C_THRESHHOLD = 70;
+  double D_THRESHHOLD = 65;
+  double E_THRESHHOLD = 60;
+  double F_THRESHHOLD = 55;
+  double G_THRESHHOLD = 50;
+  
+  
+    Scanner keyboardInput = new Scanner(System.in);
+  //Read inputs
+  // Compute grade  
+    System.out.println("enter you lab assignment score out of 280");
+        score = keyboardInput.nextDouble();
+       labAssignment =(score/ASSINGMENT_MAX) * ASSIGNMENT_WEIGHT;
+      
+  
+    System.out.println("enter your midsem test score out of 350");
+        score1 = keyboardInput.nextDouble();
+     test_MidSem =(score1/MIDSEM_TEST_MAX) * MID_SEM_TESTS_WEIGHT;
+     
+     
+      System.out.println("enter your final exam score out of 100");
+        score2 = keyboardInput.nextDouble();
+    finalExam =(score2/FINAL_MAX) *FINAL_WEIGHT ;
+     
+      System.out.println("enter your participation score out of 14");
+        score3 = keyboardInput.nextDouble();
+    participation =(score3/PARTICIPATION_MAX) *PARTICIPATION_WEIGHT ;
+    
+    //Computing total grade
+    finalGrade = (labAssignment + test_MidSem + finalExam + participation);
+    System.out.printf("this is your score...%.2f%%", finalGrade);
+    //Compute the Letter grade
+    if( finalGrade >=A_THRESHHOLD){
+      System.out.println("A");
+    }
+    else if (finalGrade >= B_THRESHHOLD)
+      System.out.println("B+");
+    else if (finalGrade >=C_THRESHHOLD){
+         System.out.println("B");
+       }
+    else if(finalGrade >= D_THRESHHOLD){
+            System.out.println("C+");
+    }
+     else if(finalGrade >= E_THRESHHOLD){
+       System.out.println("C");
+     }
+     else if(finalGrade >=F_THRESHHOLD){
+       System.out.println("D+");
+     }    
+     else if(finalGrade >= G_THRESHHOLD){
+       System.out.println("D");
+     }
+     else
+         System.out.println("Fail");
+      
+      
+    
+    
+  }
+  
+  
+}

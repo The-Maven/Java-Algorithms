@@ -1,0 +1,13 @@
+
+Enter word to detect palindrome
+aibohphobia
+aibohphobia
+This is a Palindrome
+Enter word to detect palindrome
+ana
+ana
+This is a Palindrome
+Enter word to detect palindrome
+java
+avaj
+This is not a Palindrome

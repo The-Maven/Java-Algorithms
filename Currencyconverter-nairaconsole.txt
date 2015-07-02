@@ -1,0 +1,9 @@
+
+This program can change Ghana cedis to dollars, naira or shilling
+Enter 1 to change cedi to dollar
+2 to change cedi to Naira
+3 to change cedi to shilling
+2
+Now enter money in cedis
+89
+Your money is worth...7225.09 naira . Do you want to convert again? y/n

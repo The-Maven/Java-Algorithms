@@ -1,0 +1,10 @@
+public class World
+{
+  public boolean (int year)
+  {
+    if (year >= 1930 && year <= 1950) && (year > 1950) && (year % 4 ==0)
+      return true;
+    else
+      return false;
+  }
+}

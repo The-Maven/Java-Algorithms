@@ -1,0 +1,28 @@
+public class TestTickets
+{
+  public static void main(String[] args){
+    Tickets cinema = new Tickets(10.00, 50);
+    
+    System.out.println(" Starting ticket price = " + cinema.getTicketPrice()+ " cedis");
+    System.out.println(" Tickets available now = " + cinema.getAvailableTickets());
+    
+    cinema.setTicketPrice(6.50);
+    
+    cinema.sellTickets(30);
+    
+    System.out.println("Total Sales = " + cinema.getTotalSales() + " cedis");
+    
+    System.out.println("Sold Tickets = " + cinema.getTicketsSold());
+    
+    System.out.println("Tickets available = " + cinema.getAvailableTickets());
+    
+    System.out.println("The tickes were sold for " + cinema.getTicketPrice() + " cedis each" );
+    
+    cinema.sellTickets(50);
+    
+    
+    
+    
+    
+  }
+}

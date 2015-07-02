@@ -1,0 +1,71 @@
+
+public class ProductList {
+ private Product essentials[];
+ private int numProducts;
+ public static final int MAX_PRODUCTS = 100;
+ Product aProduct;
+ //Product p = new Product();
+ 
+ public ProductList(){
+  essentials = new Product[MAX_PRODUCTS];
+ }
+ 
+ public  void addProduct(String name, double price){
+  if (numProducts <= MAX_PRODUCTS)
+   aProduct = new Product(name, price);
+  essentials[numProducts] = aProduct;
+  numProducts++;
+ }
+ 
+ /**public String toString(){
+  return("Name: "  + p.getName() + "\nPrice: " + p.getPrice());
+ }*/
+ 
+ public int getNumProducts(){
+  return numProducts;
+ }
+ 
+ public String getProductAt(int index){
+  return essentials[index].toString();
+ }
+ 
+ public void removeProductAt(int index){           
+    if(essentials[index] == null){
+       essentials[index] = essentials[numProducts-1];
+     essentials[numProducts-1] = null;
+     }
+     else if (essentials[index] != null){
+       essentials[index] = null;
+     essentials[index] = essentials[numProducts-1];
+     essentials[numProducts-1] = null;
+     numProducts--;
+     }
+   }
+ 
+ 
+ public int findProductIndex(String name){
+  for(int i = 0; i < essentials.length; i++){
+   if(essentials[i].getName().equalsIgnoreCase(name))
+     return i;
+   break;
+ }
+ return -1;
+}
+   
+ public static void main (String []args){
+  Product p1 = new Product("biscuit", 70);
+  ProductList s1 = new ProductList();
+  System.out.println(p1.getPrice());
+  s1.addProduct("sugar", 23);
+  s1.addProduct("coke", 12);
+  s1.addProduct("vanilla", 50);
+  System.out.println(s1.getNumProducts());
+  //s1.removeProductAt(1);
+  System.out.println(s1.getNumProducts());
+  System.out.println(s1.getProductAt(2));
+  s1.findProductIndex("vanilla");
+ }
+ 
+ 
+}
+ 

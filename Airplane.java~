@@ -1,0 +1,31 @@
+public class Airplane extends Vehicle
+{
+  private double wingSpan;
+  private int engines;
+  
+  public Airplane(double theWingSpan, int theEngines)
+  {
+    super(theManufacturer, theCylinders, theFuelCap);
+    wingSpan = theWingSpan;
+    engines = theEngines;
+  }
+  
+  public double getWingSpan()
+  {
+    return wingSpan;
+  }
+  
+  public int getEngines()
+  {
+    return engines;
+  }
+  
+  
+  public void printDetails()
+  {
+    super.printDetails();
+    System.out.println("Wing Span: " + wingSpan);
+    System.out.println("Engines: " + engines);
+  }
+    
+  

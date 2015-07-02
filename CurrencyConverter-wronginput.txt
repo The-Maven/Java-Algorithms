@@ -1,0 +1,8 @@
+
+This program can change Ghana cedis to dollars, naira or shilling
+Enter 1 to change cedi to dollar
+2 to change cedi to Naira
+3 to change cedi to shilling
+5
+sorry please try again
+ . Do you want to convert again? y/n

@@ -1,0 +1,10 @@
+public class TestTree{
+    public static void main(String[] args) {
+      BinarySearchTree<Integer, Product> apple = new BinarySearchTree<Tree>();
+      
+    Product water = new Product("water", 1);
+    Product sugar = new Product("sugar", 2);
+    Product milk = new Product("milk", 3);
+    Product toffee = new Product("toffee", 4);
+    Product soup = new Product("soup", 5);
+    Product tofu = new Product("tofu", 8);

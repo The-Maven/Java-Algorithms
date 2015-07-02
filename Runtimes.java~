@@ -1,0 +1,95 @@
+public class Runtimes
+{  
+  
+  public static long times1[] = new long[10];
+  public static long times2[] = new long[10];
+  public static long times3[] = new long[10];
+  public static long times4[] = new long[10];
+  public int n = 100;
+  
+  public void runTime1(int n){
+    int sum = 0;
+    for(int i = 0; i < n; i++){
+      sum++;
+    }
+  }
+  public void runTime2(int n){
+    int sum = 0;
+    for ( int i = 0; i  < n; i++){
+      for ( int j = 0;  j < n; j++){
+        sum++;
+      }
+    }
+  }
+  public void runTime3(int n){
+    int sum = 0;
+    for ( int i = 0; i < n; i++){
+      for ( int j = 0; j < n*n; j++){
+        sum++;
+      }
+    }  
+  }
+  public void runTime4(int n){
+    int sum = 0;
+    for ( int i = 0; i < n; i++){
+      for ( int j = 0; j < i; j++){
+        sum++;
+      }
+    }
+  }
+  
+  
+  public static void main(String[] args){
+    
+    Runtimes r1 = new Runtimes();
+      int sum = 0;
+      int f = 50;
+      for(int i = 0; i < times1.length; i++){
+      for(int j = 0; j < times1.length; j++){
+        int count = 0;
+        long start = System.nanoTime();
+        r1.runTime1(f);
+        long end = System.nanoTime();
+        times1[j] = end - start;
+        sum += times1[j];
+      }
+      //System.out.println(sum/10);
+          f += 50;
+    }
+      
+    int sum2 = 0;
+    int n2 = 100000;
+    for(int i = 0; i < times2.length; i++){
+       n2 += 1000000;
+      for(int j = 0; j < times2.length; j++){
+        int count = 0;
+        long start = System.nanoTime();
+        r1.runTime2(n2);
+        long end = System.nanoTime();
+        times2[j] = end - start;
+        sum2 += times2[j];
+      }
+     // System.out.println(sum2/10);
+  }
+    
+    int sum3 = 0;
+    int n3 = 100;
+    for(int i = 0; i < times3.length; i++){
+      n3 += 1000000;
+      for(int j = 0; j < times3.length; j++){
+        int count = 0;
+        long start = System.nanoTime();
+        r1.runTime3(n3);
+        long end = System.nanoTime();
+        times3[j] = end - start;
+        sum2 += times3[j];
+      }
+      System.out.println(sum2/10);
+}
+}
+}
+
+
+
+
+

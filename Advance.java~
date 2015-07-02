@@ -1,0 +1,31 @@
+public class Advance
+{
+  public static void main (String[] args){
+    System.out.println(karatsuba(5678, 1234));
+    
+  }
+  public static int karatsuba(int x, int y){
+    int a, b, c, d;
+    String s = "" + x;
+    int n = s.length();
+    if(n==1){
+      return x * y;
+    }else{
+      a =(x/((int)Math.pow(10, n/2)));
+      b =(x%((int)Math.pow(10, n/2)));
+      c = (y/((int)Math.pow(10, n/2)));
+      d = (y%((int)Math.pow(10, n/2)));
+      
+      karatsuba(a, b);
+      karatsuba(c, d);
+      karatsuba((a+b), (c+d));
+    }
+    
+    int karatsubaMagic =  ((int)Math.pow(10, n/2)) * (((a+b) * (c+d)) - a*c - b*d);
+    System.out.println(karatsubaMagic);
+    return (((a*c) * (int)Math.pow(10, n)) + (b*d)) + karatsubaMagic;
+   
+  }
+}
+
+

@@ -1,0 +1,61 @@
+ public class TestCar
+{
+  public static void main(String[] args)
+  {
+    Person driver = new Person("Longdon", 46);                    //creating Person objects
+    Person frontSeatPassenger = new Person("Alice", 34);
+    Person backSeatPassenger1 = new Person("Doug", 43);
+    Person backSeatPassenger2 = new Person("Malala", 19);
+    Person backSeatPassenger3 = new Person("Icecube", 38);
+    Person passenger = new Person();
+    
+    Car myCar = new Car();                                        //creating car objects
+    Car ourCar = new Car(driver, frontSeatPassenger, backSeatPassenger1, backSeatPassenger2, backSeatPassenger3, "GR 343");
+    Car theCar = new Car(driver);
+    
+    System.out.println(driver.getName()+ " " + frontSeatPassenger.getAge());          // displaying occupants' names and ages
+    System.out.println(frontSeatPassenger.getName()+ " " + frontSeatPassenger.getAge());
+    System.out.println(backSeatPassenger1.getName()+ " " + backSeatPassenger1.getAge());
+    System.out.println(backSeatPassenger2.getName()+ " " + backSeatPassenger2.getAge());
+    System.out.println(backSeatPassenger3.getName()+ " " + backSeatPassenger3.getAge());
+    System.out.println(passenger.getName()+ " " + passenger.getAge());
+    
+    System.out.println(" Does this Car contain drivers?");                          // displaying result of driver test
+    System.out.println(ourCar.hasDriver());
+    
+    System.out.println(" Does this Car have passengers?");                          // displaying result of passenger test
+    System.out.println(ourCar.hasPassenger());
+    
+    System.out.println(" is our car empty?");                                      // displaying result of empty test
+    System.out.println(ourCar.isEmpty());
+    
+    System.out.println(" is my Car empty?");
+    System.out.println(myCar.isEmpty());
+    
+    System.out.println(" Is our car full?");                                        // full test
+    System.out.println(ourCar.isFull());
+    
+    System.out.println(" These are the riders");
+    ourCar.listRiders();
+    
+    System.out.println(" How many are in our car?");                               //displaying number of occupants
+    System.out.println(ourCar.getNumOccupants());
+    
+    System.out.println("How many are in my car?");
+    System.out.println(myCar.getNumOccupants());
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  }
+}
+

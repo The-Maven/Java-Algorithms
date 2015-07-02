@@ -1,0 +1,47 @@
+import java.util.TreeMap;
+
+public class MapTree
+{
+  System.out.println("A Tree Map OF Products\n");
+  TreeMap<Product> tree = new TreeMap<Product>();
+  
+  Product water = new Product("water", 1);
+  Product sugar = new Product("sugar", 2);
+  Product milk = new Product("milk", 3);
+  Product toffee = new Product("toffee", 4);
+  Product soup = new Product("soup", 5);
+  Product tofu = new Product("tofu", 8);
+  
+  tree.put(0, water);
+  tree.put(1, sugar);
+  tree.put(2, milk);
+  tree.put(3, toffee);
+  tree.add(4, soup);
+  
+  
+  System.out.println(tree.containsKey(1));
+  System.out.println(tree.containsKey(7));
+  
+  System.out.println(tree.get(1));
+  System.out.println(tree.get(7));
+  
+  System.out.println(tree.containsValue(water));
+  System.out.println(tree.containsValue(sugar));
+
+  System.out.println(tree.keySet());
+  
+  System.out.println(tree.values());
+  
+  for(int i = 0; i < tree.size(); i++){
+    tree.get(i).setPrice(1.1 * tree.get(i).getPrice());
+    System.out.println(tree.get(i));
+  }
+  
+  tree.remove(1);
+  
+  for(int i = 0; i < tree.size(); i++){
+    System.out.println(tree.get(i));
+  }
+}
+  
+  

@@ -1,0 +1,26 @@
+public class ListStack()
+{
+  private ListNode top;
+  private int nElems;
+  
+  public Stack(){
+    top = null;
+    nElems = 0;
+  }
+  
+  public void push(Integer x){
+    ListNode a = new ListNode(x);
+    if (top = null)
+      top = a;
+    else
+      a.next = top;
+    top = a;
+    nElems++;
+  }
+  
+  public Integer pop(){
+    ListNode temp = top;
+    top = top.next;
+    return temp.data;
+  }
+}

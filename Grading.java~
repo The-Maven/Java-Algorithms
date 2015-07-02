@@ -1,0 +1,44 @@
+public class Grading
+{
+  
+  
+  public static String tellGrade(double finalGrade)
+  {
+     if (finalGrade < 0 || finalGrade > 100)
+     {
+       return "Invalid grade";
+     }
+     else if (finalGrade >= 80)
+     {
+     return "A";
+    }
+    else if (finalGrade >= 75)
+    {
+      return "B+";
+    }
+    else if (finalGrade >= 70)
+    {
+      return "B";
+    }
+    else if(finalGrade >= 65)
+    {
+      return "C+";
+    }
+    else if(finalGrade >= 60)
+    {
+      return "C";
+    }
+    else if(finalGrade >=55)
+    {
+      return "D+";
+    }    
+    else if(finalGrade >= 50)
+    {
+      return "D";
+    }
+    else
+    {
+      return "Fail";
+  }
+}
+}

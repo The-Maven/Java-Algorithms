@@ -1,0 +1,8 @@
+public testNode
+{
+  public static void main (String[] args){
+    {
+  ListNode a = new ListNode(4);
+      System.out.println(a.data);
+    }
+  }

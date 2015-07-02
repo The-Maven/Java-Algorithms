@@ -1,0 +1,350 @@
+// BinarySearchTree class
+//
+// CONSTRUCTION: with no initializer
+//
+// ******************PUBLIC OPERATIONS*********************
+// void insert( x )       --> Insert x
+// void remove( x )       --> Remove x
+// boolean contains( x )  --> Return true if x is present
+// Comparable findMin( )  --> Return smallest item
+// Comparable findMax( )  --> Return largest item
+// boolean isEmpty( )     --> Return true if empty; else false
+// void makeEmpty( )      --> Remove all items
+// void printTree( )      --> Print tree in sorted order
+// ******************ERRORS********************************
+// Throws UnderflowException as appropriate
+
+import java.util.Formatter;
+
+/**
+ * Implements an unbalanced binary search tree.
+ * Note that all "matching" is based on the compareTo method.
+ * @author Mark Allen Weiss
+ */
+public class BinarySearchTree<T extends Comparable<? super T>>
+{
+  /** The tree root. */
+  private BinaryNode<T> root;
+  
+  
+  // Basic node stored in unbalanced binary search trees
+  private static class BinaryNode<T>
+  {
+    T element;            // The data in the node
+    BinaryNode<T> left;   // Left child
+    BinaryNode<T> right;  // Right child
+    
+    // Constructors
+    BinaryNode( T theElement )
+    {
+      this( theElement, null, null );
+    }
+    
+    BinaryNode( T theElement, BinaryNode<T> lt, BinaryNode<T> rt )
+    {
+      element  = theElement;
+      left     = lt;
+      right    = rt;
+    }
+  }
+  
+  
+  /**
+   * Construct the tree.
+   */
+  public BinarySearchTree( )
+  {
+    root = null;
+  }
+  
+  /**
+   * Insert into the tree; duplicates are ignored.
+   * @param x the item to insert.
+   */
+  public void insert( T x )
+  {
+    root = insert( x, root );
+  }
+  
+  /**
+   * Internal method to insert into a subtree.
+   * @param x the item to insert.
+   * @param t the node that roots the subtree.
+   * @return the new root of the subtree.
+   */
+  private BinaryNode<T> insert( T x, BinaryNode<T> t )
+  {
+    if( t == null )
+      return new BinaryNode<T>( x, null, null );
+    
+    int compareResult = x.compareTo( t.element );
+    
+    if( compareResult < 0 )
+      t.left = insert( x, t.left );
+    else if( compareResult > 0 )
+      t.right = insert( x, t.right );
+    else
+      ;  // Duplicate; do nothing
+    
+    return t;
+  }
+    
+  /**
+   * Find the smallest item in the tree.
+   * @return smallest item or null if empty.
+   */
+  public T findMin( )
+  {
+    if( isEmpty( ) )
+      throw new RuntimeException("Cannot find min element in an empty tree.");
+    
+    return findMin( root ).element;
+  }
+
+    /**
+   * Internal method to find the smallest item in a subtree.
+   * @param t the node that roots the subtree.
+   * @return node containing the smallest item.
+   */
+  private BinaryNode<T> findMin( BinaryNode<T> t )
+  {
+    if( t == null )
+      return null;
+    
+    else if( t.left == null )
+      return t;
+    
+    else
+      return findMin( t.left );
+  }
+ 
+  /**
+   * Find the largest item in the tree.
+   * @return the largest item of null if empty.
+   */
+  public T findMax( )
+  {
+    if( isEmpty( ) )
+      throw new RuntimeException("Cannot find max element in an empty tree.");
+    
+    return findMax( root ).element;
+  }
+  
+  /**
+   * Internal method to find the largest item in a subtree.
+   * @param t the node that roots the subtree.
+   * @return node containing the largest item.
+   */
+  private BinaryNode<T> findMax( BinaryNode<T> t )
+  {
+    
+    if( t != null ) {
+      
+      while( t.right != null )
+        t = t.right;
+    
+    }
+    
+    return t;
+  }
+    
+  /**
+   * Find an item in the tree.
+   * @param x the item to search for.
+   * @return true if not found.
+   */
+  public boolean contains( T x )
+  {
+    return contains( x, root );
+  }
+
+    /**
+   * Internal method to find an item in a subtree.
+   * @param x is item to search for.
+   * @param t the node that roots the subtree.
+   * @return node containing the matched item.
+   */
+  private boolean contains( T x, BinaryNode<T> t )
+  {
+    if( t == null )
+      return false;
+    
+    int compareResult = x.compareTo( t.element );
+    
+    if( compareResult < 0 )
+      return contains( x, t.left );
+    
+    else if( compareResult > 0 )
+      return contains( x, t.right );
+    
+    else // compareResult == 0 i.e. they are equal
+      return true;    // Match
+  }
+  
+  /**
+   * Make the tree logically empty.
+   */
+  public void makeEmpty( )
+  {
+    root = null;
+  }
+  
+  /**
+   * Test if the tree is logically empty.
+   * @return true if empty, false otherwise.
+   */
+  public boolean isEmpty( )
+  {
+    return root == null;
+  }
+  
+  /**
+   * Print the tree contents in sorted order.
+   */
+  public void printTree( )
+  {
+    if( isEmpty( ) )
+      System.out.println( "Empty tree" );
+    else {
+      printTree( root );
+      System.out.println();
+    }
+  }
+  
+  /**
+   * Remove from the tree. Nothing is done if x is not found.
+   * @param x the item to remove.
+   */
+  public void remove( T x )
+  {
+    root = remove( x, root );
+  }
+
+  /**
+   * Internal method to remove from a subtree.
+   * @param x the item to remove.
+   * @param t the node that roots the subtree.
+   * @return the new root of the subtree.
+   */
+  private BinaryNode<T> remove( T x, BinaryNode<T> t )
+  {
+    if( t == null )
+      return t;   // Item not found; do nothing
+    
+    int compareResult = x.compareTo( t.element );
+    
+    if( compareResult < 0 )
+      t.left = remove( x, t.left );
+    
+    else if( compareResult > 0 )
+      t.right = remove( x, t.right );
+    
+    else if( t.left != null && t.right != null ) // Two children
+    {
+      BinaryNode<T> nodeOnRightWithMinElt = findMin( t.right );
+      t.element = nodeOnRightWithMinElt.element;
+      t.right = remove( nodeOnRightWithMinElt.element, t.right );
+    }
+    
+    else { // either one child or no children
+      // replace t with its child, if any
+      t = ( t.left != null ) ? t.left : t.right;
+    
+      /*
+      // one left child - replace t with its left child
+      if (t.left != null)
+        t = t.left;
+      
+      // one right child - replace t with its right child
+      else
+        t = t.right;
+      */
+    }
+    
+    return t;
+  }
+  
+  /**
+   * Internal method to print a subtree in sorted order.
+   * Note that this is an in-order traversal of the tree
+   * @param t the node that roots the subtree.
+   */
+  private void printTree( BinaryNode<T> t )
+  {
+    if( t != null )
+    {
+      printTree( t.left );
+      
+      System.out.print( t.element + " " );
+      
+      printTree( t.right );
+    }
+  }
+  
+  /**
+   * Internal method to compute height of a subtree.
+   * @param t the node that roots the subtree.
+   */
+  private int height( BinaryNode<T> t )
+  {
+    if( t == null )
+      return -1;
+    
+    else
+      return 1 + Math.max( height( t.left ), height( t.right ) );    
+  }
+  
+  
+    
+  public void drawTree(){
+    final int SMALLEST_SPACE = 4;
+    int height = height(root);
+    int maxNodes = (int) Math.pow(2, height);
+    int maxLeaves = maxNodes/2;
+    int baseWidth = SMALLEST_SPACE*(maxLeaves);
+    int center = baseWidth/2;
+    Formatter formatter = new Formatter(System.out);
+    
+    Queue<BinaryNode<T>> tempQ1 = new Queue<BinaryNode<T>>();
+    tempQ1.enqueue(root);
+    
+    int lastSpace = (int) (2*Math.pow(2, (height)));
+        
+    for (int i=0; i<height; i++){
+      int nodes = (int) Math.pow(2,i);
+      int spaces =  (int) Math.pow(2, (height-i-1)) * SMALLEST_SPACE;
+      int start = center - (nodes/2*spaces) + (i == 0 ? 0 : spaces/2); 
+      
+      Queue<BinaryNode<T>> tempQ2 = new Queue<BinaryNode<T>>();
+      
+      for (int j=0;j<start; j++){
+        System.out.print(" ");
+      }
+      
+      int node = 0;
+      while (!tempQ1.isEmpty()){        
+        BinaryNode<T> tempNode = tempQ1.dequeue();
+        if (tempNode != null){
+          tempQ2.enqueue(tempNode.left);
+          tempQ2.enqueue(tempNode.right);
+        } else {
+          tempQ2.enqueue(null);
+          tempQ2.enqueue(null);
+        }
+                
+        if (tempNode != null)
+          formatter.format(("%"+(node==0 ? spaces-start : spaces) + "d"),tempNode.element);
+        else
+          formatter.format(("%"+ (node==0 ? spaces-start : spaces) + "s"),"");
+     
+        for (int j=0; j<spaces; j++)
+          System.out.print(" ");
+        
+        node++;
+      }
+      System.out.println();
+      
+      tempQ1 = tempQ2;
+    }
+  }
+}

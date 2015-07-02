@@ -1,0 +1,43 @@
+public class TicTacToeGame
+{
+  private TicTacToeBoard board;
+  private TicTacToePlayer player;
+  private TicTacToePlayer newPlayer;
+  public int currentPlayer;
+  public int decision;
+  
+  public TicTacToeGame(String playerName1, char symbol1, String playerName2, char symbol2)
+  {
+    TicTacToeBoard board =  new TicTacToeBoard();
+    TicTacToePlayer player = new TicTacToePlayer("Percy", 'x');
+    TicTacToePlayer newPlayer = new TicTacToePlayer("Annabeth", 'o');
+  }
+  
+  
+  public void play()
+  {
+    
+    switch (decision) 
+    {
+      case 1:
+        currentPlayer = decision;
+        break;
+        
+      case 2:
+        currentPlayer = decision;
+        break;
+        
+      default : System.out.println("sorry please enter 1 or 2");    //discard wrong inputs
+      break;
+    }
+  }
+    
+    public void letsPlay()
+    {
+      int position = 0;
+      int slot = position;
+    }
+    
+  }
+
+

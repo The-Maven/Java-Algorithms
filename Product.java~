@@ -1,0 +1,43 @@
+
+public class Product {
+  
+  private String name;
+  
+  private double price;
+  
+  public Product(){
+    name = "no name";
+    price = 0.00;
+  }
+  
+  public Product(String newName, double newPrice){
+    name = newName;
+    price = newPrice;                  
+  }
+  
+  public String toString(){
+    return("Name: "  + getName() + "\nPrice: " + getPrice());
+  }
+  
+  public boolean hasSameNameAs(Product otherP){
+    return name.equals(otherP.name);
+  }
+  
+  public void setName(String aName){
+    name = aName;
+  }
+  
+  public void setPrice(double aPrice){
+    price = aPrice;
+  }
+  
+  public String getName(){
+    return name;
+  }
+  
+  public double getPrice(){
+    return price;
+  }
+  
+  
+}

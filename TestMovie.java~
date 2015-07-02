@@ -1,0 +1,17 @@
+public class TestMovie
+{
+   public static void main(String[] args)
+   {
+     Movie action = new Movie(" Pacific Rim", "PG-13");
+     System.out.println(" The first movie's name and rating are " + action.getName() + " and " + action.getMpaaRating() + " respectively");
+     
+     action.addRating(5);
+     action.addRating(5);
+     action.addRating(4);
+     action.addRating(3);
+     
+     
+     System.out.printf(" The first movie's rating =...%1.2f",action.getAverage());
+    
+   }
+}

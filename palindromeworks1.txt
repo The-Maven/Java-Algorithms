@@ -1,0 +1,5 @@
+
+Enter word to detect palindrome
+aibohphobia
+aibohphobia
+This is a Palindrome

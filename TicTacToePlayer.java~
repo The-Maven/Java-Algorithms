@@ -1,0 +1,20 @@
+public class TicTacToePlayer
+{
+  private String name;
+  private char symbol;
+  
+  public TicTacToePlayer(String newName, char newSymbol)
+  {
+    name = newName;
+    symbol = newSymbol;
+  }
+  public String getName()
+  {
+    return name;
+  }
+  public char getSymbol()
+  {
+    return symbol;
+  }
+  
+}

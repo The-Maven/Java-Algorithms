@@ -1,0 +1,9 @@
+public class character{
+  
+  public static void main(String[] args) {
+    Strng test = "abcdefg";
+    System.out.println(test.length());
+    System.out.println(test.charAt(1));
+  }
+}
+    

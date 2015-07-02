@@ -1,0 +1,34 @@
+
+
+/**
+ * A program to test the Phone class
+ * 2nd October 2013 Version
+ **/
+public class TestPhone {
+ 
+  public static void main(String[] args) {
+    
+    // Instantiate (i.e. create) three difference phone objects
+    // Two of the Phone objects are instantiated using the Phone constructor 
+    // that takes in 4 arguments.  The third Phone object is instantiated
+    // using the default Phone constructor
+    Phone myPhone = new Phone("Samsung","SII","Airtel","White");
+    Phone herPhone = new Phone("Apple", "IPhone 4S", "White", "Vodafone");
+    Phone hisPhone = new Phone();
+    
+    // Display information about myPhone
+    System.out.println("AYORKOR'S PHONE INFO");
+    myPhone.listInfo();
+    System.out.println();
+    
+    // Display information about myPhone
+    System.out.println("NAA KORKOI'S PHONE INFO");
+    herPhone.listInfo();
+    System.out.println();
+    
+    // Display information about hisPhone
+    System.out.println("SHEAMUS'S PHONE INFO");
+    hisPhone.listInfo();
+    
+  }
+}

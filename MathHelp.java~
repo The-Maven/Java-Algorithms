@@ -1,0 +1,7 @@
+public class MathHelp
+{
+  
+  public static double (double firstNumber, double secondNumber)
+  {
+    firstNumber + secondNumber;
+  }

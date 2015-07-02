@@ -1,0 +1,64 @@
+public class Tickets
+{
+  private int availableTickets;
+  private int ticketsSold;
+  private double ticketPrice;
+  private double totalSales;
+  
+  
+  public Tickets(double pricePerTicket, int ticketsAvailable)
+  {
+    availableTickets = ticketsAvailable;
+    ticketPrice = pricePerTicket;
+    ticketsSold = 0;
+    totalSales = 0;
+  }
+  
+  public int getAvailableTickets()
+  {
+    return availableTickets;
+  }
+  public int getTicketsSold()
+  {
+    return ticketsSold;
+  }
+  public double getTicketPrice()
+  {
+    return ticketPrice;
+  }
+  public double getTotalSales()
+  {
+    return totalSales;
+  }
+  
+  public void setTicketPrice(double pricePerTicket)
+  {
+    ticketPrice = pricePerTicket;
+  }
+  
+  public boolean sellTickets(int ticketsToBeSold)
+  {
+    
+    if(availableTickets >= ticketsToBeSold)
+    {
+      availableTickets = availableTickets - ticketsToBeSold;
+      totalSales = totalSales + (ticketsToBeSold * ticketPrice);
+      ticketsSold = ticketsSold + ticketsToBeSold;
+      return true;
+    }
+    else if 
+      
+      (availableTickets < ticketsToBeSold)
+    {
+      System.out.println("not enough tickets to sell");
+      return false;
+      
+    }
+    
+    else return false;
+    
+  }
+  
+}
+
+

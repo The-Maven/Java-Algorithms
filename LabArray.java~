@@ -1,0 +1,19 @@
+import java.util.Scanner;
+public class LabArray
+{
+  public static void main(String[] args)
+  {
+    double expenses = new double[10];
+    
+    Scanner input = new Scanner(System.in);
+    System.out.println(" Please enter 10 cedi values");
+    
+    for(k = 0; k < expenses.length; k++)
+    {
+      espenses[k] = input.nextDouble;
+    }
+    
+    System.out.println(" First expense =" + expenses[0]);
+  }
+}
+    
